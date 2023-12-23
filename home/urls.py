@@ -26,5 +26,5 @@ urlpatterns = [
     path('remove_emp/<int:emp_sno>', views.remove_emp, name='remove_emp'),
     path('filter_emp', views.home, name='filter_emp'),
    
-    
+
 ]

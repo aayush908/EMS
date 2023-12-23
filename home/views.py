@@ -10,8 +10,8 @@ from django.db.models import Q
 def home(request):
     if request.method == 'POST':
         name = request.POST['name']
-        dept = request.POST['dept']
-        role = request.POST['role']
+        dept = request.POST.get('dept', None)
+        role = request.POST.get('role', None)
         emps = Employee.objects.all()
         if name:
             emps = emps.filter(Q(first_name__icontains = name) | Q(last_name__icontains = name))
