@@ -8,7 +8,27 @@ from django.db.models import Q
 
 # Create your views here.
 def home(request):
-    return render(request , 'home.html')
+    if request.method == 'POST':
+        name = request.POST['name']
+        dept = request.POST['dept']
+        role = request.POST['role']
+        emps = Employee.objects.all()
+        if name:
+            emps = emps.filter(Q(first_name__icontains = name) | Q(last_name__icontains = name))
+        if dept:
+            emps = emps.filter(dept__name__icontains = dept)
+        if role:
+            emps = emps.filter(role__name__icontains = role)
+
+        context = {
+            'emps': emps
+        }
+        return render(request, 'all_emp.html', context)
+
+    elif request.method == 'GET':
+        return render(request, 'home.html')
+    else:
+        return HttpResponse('An Exception Occurred')
 
 def add_emp(request):
     if request.method == 'POST':
