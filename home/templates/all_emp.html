@@ -1,14 +1,16 @@
 {% extends "index.html" %}
 {%  block body %}
 
-ALL EMPLOYEE DETAIL<br>
-<table class="table" data-bs-theme="dark">
+ ALL EMPLOYEE DETAIL<br>
+<table class="table mx-1" data-bs-theme="dark">
     <thead>
       <tr>
         <th scope="col">sno</th>
         <th scope="col">FName</th>
         <th scope="col">LName</th>
         <th scope="col">Salary</th>
+        <th scope="col">DEPARTMENT</th>
+        <th scope="col">HIRE DATE</th>
       </tr>
     </thead>
     {% for emp in emps %}
@@ -18,6 +20,8 @@ ALL EMPLOYEE DETAIL<br>
         <td>{{emp.first_name}}</td>
         <td>{{emp.last_name}}</td>
         <td>{{emp.salary}}</td>
+        <td>{{emp.dept}}</td>
+        <td>{{emp.hire_date}}</td>
       </tr>
      
     </tbody>
