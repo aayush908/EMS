@@ -1,20 +1,35 @@
 {% extends "index.html" %}
+<style>
+    .sd{
+        color: #8707ff;
+        border: 2px solid #8707ff;
+        border-radius: 10px;
+        padding: 10px 25px;
+        background: transparent;
+        max-width: 190px;
+       }
+       
+       .sd:active {
+        box-shadow: 2px 2px 15px #8707ff inset;
+       }
+       
+</style>
 {%  block body %}
 
 
-<div class="container my-2" style="background-color: #707076; padding: 10px;">
+<div class="container my-2" style="background-color: blueviolet;" >
     <h1>Filter Employee Details!</h1>
 <hr>
 <form action="/filter_emp" method="post">
 {% csrf_token %}
-<label for="name">Employee First/Last Name</label><br>
-<input type="text" id="name" name="name" value="{{ name }}"><br>
-<label for="dept">Department</label><br>
-<input type="text" id="dept" name="dept" value="{{ dept }}"><br>
-<label for="role">Role</label><br>
-<input type="text" id="role" name="role" value="{{ role }}"><br>
+<!-- <label for="name">Employee First/Last Name</label><br> -->
+<input type="text"  class = "sd" id="name" name="name" value="{{ name }}" placeholder="First/Last  Name"><br><br>
+<!-- <label for="dept">Department</label><br> -->
+<input type="text" class = "sd" id="dept" name="dept" value="{{ dept }}" placeholder="Department  Name"><br><br>
+<!-- <label for="role">Role</label><br> -->
+<input type="text"  class = "sd" id="role" name="role" value="{{ role }}" placeholder="Role"><br><br>
 <hr>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">SEARCH</button>
 </form>
 
 

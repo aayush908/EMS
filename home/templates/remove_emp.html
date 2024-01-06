@@ -14,7 +14,15 @@ Choose Employee To Be Removed
 </button>
 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 {% for emp in emps %}
-<li><a class="dropdown-item" href="/remove_emp/{{emp.sno}}">{{emp.first_name}} {{emp.last_name}}</a></li>
+<li><a class="dropdown-item my-2" style = " width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #008080,
+    #008080 10px,
+    #20b2aa 10px,
+    #20b2aa 20px
+  );"href="/remove_emp/{{emp.sno}}"> {{forloop.counter}} - {{emp.first_name}} {{emp.last_name}}</a> </li> 
 {% endfor %}
 </ul>
 </div>
